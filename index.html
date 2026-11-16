@@ -1,29 +1,33 @@
 <!doctype html><html><head><meta charset="utf-8"><title>Pitwall</title>
 <style>
-:root{--a:#00D2BE;--bg:#0e0f11;--c:#17191c;--l:#262a2f;--t:#e9ecef;--m:#80868d}
+:root{--a:#00D2BE;--bg:#131416;--c:#1b1c1f;--l:#2a2b2f;--t:#ececee;--m:#868990}
 *{box-sizing:border-box;margin:0}
-body{background:var(--bg);color:var(--t);font:14px -apple-system,Segoe UI,sans-serif;padding:34px 18px 84px;user-select:none}
-h1{font-size:13px;letter-spacing:.35em;font-weight:800}h1 b{color:var(--a)}
-.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
-.sub{color:var(--m);font-size:12px}
-.card{background:var(--c);border-radius:16px;padding:6px 14px;margin-top:14px}
-.row{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--l)}.row:last-child{border:0}
-.row .n{flex:1}.tag{font-size:10px;color:var(--m);letter-spacing:.1em;width:20px}
-.dot{width:10px;height:10px;border-radius:50%}
+body{background:var(--bg);color:var(--t);font:13px -apple-system,Segoe UI,sans-serif;padding:38px 20px 80px;user-select:none}
+h1{font-size:12px;letter-spacing:.32em;font-weight:700;display:flex;gap:8px;align-items:center}h1 b{color:var(--a);font-weight:700}h1 em{font-style:normal;font-size:18px;letter-spacing:0}
+.top{display:flex;justify-content:space-between;align-items:center}
+.sub{color:var(--m);font-size:11px;letter-spacing:.02em}
+.card{background:var(--c);border:1px solid var(--l);border-radius:12px;padding:2px 12px;margin-top:12px}
+.row{display:flex;align-items:center;gap:8px;height:38px;border-bottom:1px solid var(--l)}.row:last-child{border:0}
+.row .n{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.t{color:var(--m);font-size:12px;width:56px;text-align:right}
+.tag{font-size:10px;color:var(--m);width:22px}
+.dot{width:7px;height:7px;border-radius:50%}
 button,input{font:inherit;color:var(--t)}
-button{background:var(--l);border:0;border-radius:8px;padding:6px 10px;cursor:pointer;font-size:12px}
-button:hover{filter:brightness(1.3)}.go{background:var(--a);color:#000;font-weight:700;width:34px}
-.x{background:none;color:var(--m);padding:4px}
-input{background:var(--l);border:0;border-radius:8px;padding:8px 10px;width:100%;outline:none}
-.nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:#0e0f11ee;border-top:1px solid var(--l);padding:8px 20px 14px;justify-content:space-around}
-.nav button{background:none;color:var(--m);letter-spacing:.15em;font-size:11px}.nav .on{color:var(--a);font-weight:700}
-.big{text-align:center;margin-top:10px}.mono{font-variant-numeric:tabular-nums}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
-.d{background:var(--c);border:2px solid transparent;border-radius:12px;padding:6px 2px;text-align:center;font-size:10px;cursor:pointer}
-.d.on{border-color:var(--a)}.d span{color:var(--m);display:block}
-.bar{height:6px;background:var(--l);border-radius:3px;flex:1;overflow:hidden}.bar i{display:block;height:100%;background:var(--a)}
-.lbl{color:var(--m);font-size:11px;letter-spacing:.12em;margin:18px 0 4px}
-.two{display:flex;gap:8px;align-items:center;margin:8px 0}input[type=color]{width:40px;padding:0;height:32px}
+button{background:none;border:0;border-radius:6px;padding:4px 6px;cursor:pointer;font-size:11px;color:var(--m)}
+button:hover{color:var(--t);background:var(--l)}
+.go{background:var(--a);color:#000;width:24px;height:24px;border-radius:50%;padding:0;font-size:9px}.go:hover{background:var(--a);filter:brightness(1.15);color:#000}
+.x{opacity:0;padding:4px}.row:hover .x{opacity:1}
+input{background:var(--c);border:1px solid var(--l);border-radius:8px;padding:8px 10px;width:100%;outline:none}input:focus{border-color:var(--a)}
+.row input{border:0;background:none;padding:0}
+.nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:#131416ee;border-top:1px solid var(--l);padding:6px 20px 12px;justify-content:space-around;backdrop-filter:blur(8px)}
+.nav button{letter-spacing:.18em;font-size:10px;padding:6px 14px}.nav .on{color:var(--a);background:none}
+.big{text-align:center;margin-top:6px}.mono{font-variant-numeric:tabular-nums}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}
+.d{background:var(--c);border:1px solid var(--l);border-radius:10px;padding:6px 2px 5px;text-align:center;font-size:10px;cursor:pointer}
+.d.on{border-color:var(--a)}.d span{color:var(--m);display:block;font-size:9px}
+.bar{height:4px;background:var(--l);border-radius:2px;flex:1;overflow:hidden}.bar i{display:block;height:100%;background:var(--a)}
+.lbl{color:var(--m);font-size:10px;letter-spacing:.16em;margin:18px 0 6px}
+.two{display:flex;gap:8px;align-items:center;margin:6px 0}input[type=color]{width:34px;height:28px;padding:0;flex:none}
+.show{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,var(--c),#202226);border:1px solid var(--l);border-radius:14px;padding:14px;margin-top:14px}
 </style></head><body><div id="app"></div>
 <script>
 const D=[[63,'George Russell','Mercedes','#00D2BE'],[12,'Kimi Antonelli','Mercedes','#00D2BE'],
@@ -38,7 +42,7 @@ const D=[[63,'George Russell','Mercedes','#00D2BE'],[12,'Kimi Antonelli','Merced
 [31,'Esteban Ocon','Haas','#B6BABD'],[87,'Oliver Bearman','Haas','#B6BABD'],
 [11,'Sergio Perez','Cadillac','#9AA0A6'],[77,'Valtteri Bottas','Cadillac','#9AA0A6']];
 const PAL=['#5b8def','#e8743b','#9b7cf0','#4cc38a','#f2c14e','#ef6f9b'];
-let S=JSON.parse(localStorage.pw||'null')||{id:crypto.randomUUID(),name:'',driver:63,shell:null,stripe:'#ffffff',goal:20,
+let S=JSON.parse(localStorage.pw||'null')||{id:crypto.randomUUID(),name:'',driver:63,shell:null,stripe:'#2b2e34',goal:20,
  sectors:[{id:'a',name:'EM2',color:PAL[0]},{id:'b',name:'EC3',color:PAL[1]},{id:'c',name:'Neurocomputation',color:PAL[2]}],
  logs:{},run:null,groups:[],sync:{url:'',key:''}};
 let tab=S.name?'race':'garage',G={};
@@ -50,34 +54,36 @@ const log=()=>S.logs[wk()]=S.logs[wk()]||{};
 const el=id=>S.run&&S.run.s==id?Math.floor((Date.now()-S.run.t)/1000):0;
 const sec=id=>(log()[id]||0)+el(id),total=()=>S.sectors.reduce((a,s)=>a+sec(s.id),0);
 const shell=()=>S.shell||drv(S.driver)[3];
-function helmet(n,sh,st,z=44){return `<svg width="${z}" height="${z}" viewBox="0 0 64 64"><path d="M6 42C6 20 22 8 38 8c14 0 22 12 22 28v10H24C12 46 6 46 6 42Z" fill="${sh}"/><path d="M36 22h24v14H40Z" fill="#101214"/><rect x="6" y="38" width="54" height="4" fill="${st}"/><text x="24" y="33" font-size="13" font-weight="800" fill="${st}" text-anchor="middle" font-family="sans-serif">${n}</text></svg>`}
+function helmet(n,sh,su,z=44){su=su||'#2b2e34';return `<svg width="${z}" height="${z*1.12}" viewBox="0 0 64 72"><rect x="14" y="44" width="7" height="12" rx="3.5" fill="${su}"/><rect x="43" y="44" width="7" height="12" rx="3.5" fill="${su}"/><rect x="20" y="40" width="24" height="20" rx="9" fill="${su}"/><rect x="23" y="56" width="7" height="8" rx="3" fill="${su}"/><rect x="34" y="56" width="7" height="8" rx="3" fill="${su}"/><rect x="21" y="63" width="10" height="6" rx="3" fill="${sh}"/><rect x="33" y="63" width="10" height="6" rx="3" fill="${sh}"/><text x="32" y="53" font-size="9" font-weight="800" fill="${sh}" text-anchor="middle" font-family="sans-serif">${n}</text><circle cx="32" cy="24" r="21" fill="${sh}"/><rect x="15" y="19" width="34" height="14" rx="7" fill="#0d0e10"/><rect x="21" y="22" width="10" height="2.5" rx="1.2" fill="#fff" opacity=".35"/><path d="M32 3v9" stroke="${su}" stroke-width="3" stroke-linecap="round"/></svg>`}
+function car(c,n,z=190){return `<svg width="${z}" viewBox="0 0 220 70"><rect x="4" y="8" width="22" height="5" rx="2" fill="${c}"/><rect x="12" y="12" width="5" height="26" fill="#0d0e10"/><path d="M14 40L50 34L92 30L120 24L134 30L192 37L212 41V47H14Z" fill="${c}"/><path d="M98 31Q112 12 130 29Z" fill="#0d0e10"/><path d="M102 27Q114 15 128 27" stroke="#cfd2d6" fill="none" stroke-width="2"/><rect x="186" y="46" width="32" height="4" rx="2" fill="${c}"/><circle cx="48" cy="51" r="14" fill="#0d0e10"/><circle cx="48" cy="51" r="6" fill="#3a3d43"/><circle cx="168" cy="52" r="13" fill="#0d0e10"/><circle cx="168" cy="52" r="5.5" fill="#3a3d43"/><text x="74" y="43" font-size="9" font-weight="800" fill="#fff" font-family="sans-serif" opacity=".85">${n}</text></svg>`}
 function save(){localStorage.pw=JSON.stringify(S);clearTimeout(save.t);save.t=setTimeout(push,1500)}
 function add(id,s){log()[id]=(log()[id]||0)+s;save();draw()}
 function go(id){const r=S.run;if(r){add(r.s,el(r.s));S.run=null}if(!r||r.s!=id)S.run={s:id,t:Date.now()};save();draw()}
 function track(){const tot=total(),den=Math.max(S.goal*3600,tot,1),C=2*Math.PI*90;let o=0;
- const arcs=S.sectors.map(s=>{const l=sec(s.id)/den*C,a=`<circle r="90" cx="110" cy="110" fill="none" stroke="${s.color}" stroke-width="14" stroke-dasharray="${l} ${C}" stroke-dashoffset="${-o}"/>`;o+=l;return a}).join('');
+ const arcs=S.sectors.map(s=>{const l=sec(s.id)/den*C,a=`<circle r="90" cx="110" cy="110" fill="none" stroke="${s.color}" stroke-width="9" stroke-dasharray="${l} ${C}" stroke-dashoffset="${-o}"/>`;o+=l;return a}).join('');
  const an=tot/den*2*Math.PI,x=110+90*Math.sin(an),y=110-90*Math.cos(an),done=tot>=S.goal*3600;
- return `<svg viewBox="0 0 220 220" width="230"><circle r="90" cx="110" cy="110" fill="none" stroke="#1d2024" stroke-width="14"/><g transform="rotate(-90 110 110)">${arcs}</g><rect x="107" y="12" width="6" height="22" fill="#fff" opacity=".7"/><circle cx="${x}" cy="${y}" r="9" fill="var(--a)" stroke="#0e0f11" stroke-width="3"/><text x="110" y="112" text-anchor="middle" font-size="34" font-weight="700" fill="#e9ecef" class="mono">${(tot/3600).toFixed(1)}h</text><text x="110" y="134" text-anchor="middle" font-size="11" fill="#80868d">${done?'🏁 chequered flag':'of '+S.goal+'h race distance'}</text></svg>`}
+ return `<svg viewBox="0 0 220 220" width="210"><circle r="90" cx="110" cy="110" fill="none" stroke="#222427" stroke-width="9"/><g transform="rotate(-90 110 110)">${arcs}</g><rect x="108" y="15" width="4" height="14" fill="#fff" opacity=".6"/><circle cx="${x}" cy="${y}" r="7" fill="var(--a)" stroke="#131416" stroke-width="3"/><text x="110" y="112" text-anchor="middle" font-size="30" font-weight="700" fill="#e9ecef" class="mono">${(tot/3600).toFixed(1)}h</text><text x="110" y="134" text-anchor="middle" font-size="11" fill="#80868d">${done?'🏁 chequered flag':'of '+S.goal+'h race distance'}</text></svg>`}
 function race(){const d=drv(S.driver),r=S.run;
  return `<div class="big">${track()}</div><div class="sub" style="text-align:center">${r?'🟢 Green flag · '+clock(el(r.s)):'Pits open · press ▶ for lights out'}</div>
- <div class="card">${S.sectors.map((s,i)=>`<div class="row"><span class="tag">S${i+1}</span><span class="dot" style="background:${s.color}"></span><span class="n">${s.name}<br><span class="sub mono">${fmt(sec(s.id))}</span></span>
+ <div class="card">${S.sectors.map(s=>`<div class="row"><span class="dot" style="background:${s.color}"></span><span class="n">${s.name}</span><span class="t mono">${fmt(sec(s.id))}</span>
  <button onclick="add('${s.id}',1800)">+30m</button><button onclick="add('${s.id}',3600)">+1h</button>
  <button class="go" onclick="go('${s.id}')">${r&&r.s==s.id?'■':'▶'}</button><button class="x" onclick="del('${s.id}')">×</button></div>`).join('')}
- <div class="row"><input id="ns" placeholder="+ New sector (Enter)" onkeydown="if(event.key=='Enter')addS()"></div></div>
- <p class="sub" style="text-align:center;margin-top:14px">${r?'Press ■ to box and bank your stint.':`Let's go ${S.name||d[1].split(' ')[0]} — #${d[0]} for ${d[2]}.`}</p>`}
+ <div class="row"><input id="ns" placeholder="+ sector" onkeydown="if(event.key=='Enter')addS()"></div></div>
+ <p class="sub" style="text-align:center;margin-top:16px">${r?'Press ■ to box and bank your stint.':`Let's go ${S.name||d[1].split(' ')[0]} — #${d[0]} for ${d[2]}.`}</p>`}
 function addS(){const v=document.getElementById('ns').value.trim();if(v){S.sectors.push({id:'s'+Date.now(),name:v,color:PAL[S.sectors.length%PAL.length]});save();draw()}}
 function del(id){if(confirm('Remove this sector?')){S.sectors=S.sectors.filter(s=>s.id!=id);save();draw()}}
 function paddock(){const mine={member:S.id,name:S.name||'You',driver:S.driver,shell:shell(),stripe:S.stripe,secs:total()};
  return S.groups.map(g=>{const rows=[...(G[g.code]||[]).filter(r=>r.member!=S.id),mine].sort((a,b)=>b.secs-a.secs),mx=Math.max(S.goal*3600,rows[0].secs,1);
- return `<div class="lbl">${g.name.toUpperCase()} · CODE ${g.code} <button class="x" onclick="leave('${g.code}')">leave</button></div><div class="card">${rows.map((r,i)=>`<div class="row"><span class="tag">P${i+1}</span>${helmet(r.driver,r.shell||drv(r.driver)[3],r.stripe||'#fff',34)}<span class="n">${r.name}</span><div class="bar"><i style="width:${Math.min(100,r.secs/mx*100)}%"></i></div><span class="sub mono" style="width:54px;text-align:right">${fmt(r.secs)}</span></div>`).join('')}</div>`}).join('')+
+ return `<div class="lbl">${g.name.toUpperCase()} · CODE ${g.code} <button class="x" onclick="leave('${g.code}')">leave</button></div><div class="card">${rows.map((r,i)=>`<div class="row"><span class="tag">P${i+1}</span>${helmet(r.driver,r.shell||drv(r.driver)[3],r.stripe,30)}<span class="n">${r.name}</span><div class="bar"><i style="width:${Math.min(100,r.secs/mx*100)}%"></i></div><span class="sub mono" style="width:54px;text-align:right">${fmt(r.secs)}</span></div>`).join('')}</div>`}).join('')+
  `<div class="lbl">NEW PADDOCK</div><div class="two"><input id="gn" placeholder="Name (e.g. Study Squad)"><input id="gc" placeholder="Code (blank = new)" style="width:150px"></div><button onclick="join()" style="width:100%">Create / join</button>`+
  (S.sync.url?'':'<p class="sub" style="margin-top:12px">Friends show up once sync is set up in Garage (see README).</p>')}
 function join(){const n=gn.value.trim()||'Paddock',c=(gc.value.trim()||Math.random().toString(36).slice(2,7)).toUpperCase();S.groups.push({name:n,code:c});save();pull();draw()}
 function leave(c){S.groups=S.groups.filter(g=>g.code!=c);save();draw()}
 function garage(){const d=drv(S.driver);
- return `<div class="lbl">DRIVER NAME</div><input value="${S.name}" placeholder="Your name" oninput="S.name=this.value;save()">
- <div class="lbl">YOUR HELMET</div><div class="two">${helmet(d[0],shell(),S.stripe,64)}<input type="color" value="${shell()}" onchange="S.shell=this.value;save();draw()"><input type="color" value="${S.stripe}" onchange="S.stripe=this.value;save();draw()"><button onclick="S.shell=null;S.stripe='#ffffff';save();draw()">reset</button></div>
- <div class="lbl">THE GRID</div><div class="grid">${D.map(x=>`<div class="d ${x[0]==S.driver?'on':''}" onclick="S.driver=${x[0]};S.shell=null;save();draw()">${helmet(x[0],x[3],'#fff',36)}${x[1].split(' ')[1]}<span>${x[2]}</span></div>`).join('')}</div>
+ return `<div class="show">${car(shell(),d[0])}${helmet(d[0],shell(),S.stripe,62)}</div>
+ <div class="lbl">NAME</div><input value="${S.name}" placeholder="Your name" oninput="S.name=this.value;save()">
+ <div class="lbl">COLOURS · HELMET & SHOES / SUIT</div><div class="two"><input type="color" value="${shell()}" onchange="S.shell=this.value;save();draw()"><input type="color" value="${S.stripe}" onchange="S.stripe=this.value;save();draw()"><button onclick="S.shell=null;S.stripe='#2b2e34';save();draw()">reset</button></div>
+ <div class="lbl">THE GRID</div><div class="grid">${D.map(x=>`<div class="d ${x[0]==S.driver?'on':''}" onclick="S.driver=${x[0]};S.shell=null;save();draw()">${helmet(x[0],x[3],'#2b2e34',38)}${x[1].split(' ')[1]}<span>${x[2]}</span></div>`).join('')}</div>
  <div class="lbl">WEEKLY RACE DISTANCE (HOURS)</div><input type="number" min="1" value="${S.goal}" onchange="S.goal=+this.value||20;save();draw()">
  <div class="lbl">GROUP SYNC (OPTIONAL)</div><div class="two"><input placeholder="Supabase URL" value="${S.sync.url}" onchange="S.sync.url=this.value.trim().replace(/\\/$/,'');save()"></div><input placeholder="Supabase anon key" value="${S.sync.key}" onchange="S.sync.key=this.value.trim();save()">`}
 const H=()=>({apikey:S.sync.key,Authorization:'Bearer '+S.sync.key,'Content-Type':'application/json',Prefer:'resolution=merge-duplicates'});
@@ -85,7 +91,7 @@ async function push(){if(!S.sync.url)return;for(const g of S.groups)try{await fe
 async function pull(){if(!S.sync.url)return;for(const g of S.groups)try{G[g.code]=await(await fetch(`${S.sync.url}/rest/v1/laps?code=eq.${g.code}&week=eq.${wk()}`,{headers:H()})).json()}catch(e){}if(tab=='paddock')draw()}
 function draw(){const d=drv(S.driver);document.documentElement.style.setProperty('--a',d[3]);
  const body=tab=='race'?race():tab=='paddock'?paddock():garage();
- app.innerHTML=`<div class="top"><h1>PIT<b>WALL</b></h1>${helmet(d[0],shell(),S.stripe,30)}</div><div class="sub">Grand Prix week ${wnum()} · ${d[1]} · ${d[2]}</div>${body}
+ app.innerHTML=`<div class="top"><h1><em>🏎️</em>PIT<b>WALL</b></h1>${helmet(d[0],shell(),S.stripe,30)}</div><div class="sub">Week ${wnum()} · #${d[0]} ${d[1]} · ${d[2]}</div>${body}
  <div class="nav">${[['race','RACE'],['paddock','PADDOCK'],['garage','GARAGE']].map(t=>`<button class="${tab==t[0]?'on':''}" onclick="tab='${t[0]}';draw();pull()">${t[1]}</button>`).join('')}</div>`}
 setInterval(()=>{if(S.run&&tab=='race'&&document.activeElement.tagName!='INPUT')draw()},1000);setInterval(()=>{push();pull()},60000);
 draw();pull();
